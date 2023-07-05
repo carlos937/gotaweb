@@ -1,0 +1,87 @@
+<div id="container-site" class="container-site"  >
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"
+        ><img id="teste" src="../../assets/logo.png" style="width: 50px" alt=""
+      /></a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              [ngClass]="{ active: pagAtiva == 'inicio' }"
+              aria-current="page"
+              (click)="escolherAba('inicio')"
+              >Inicio</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              [ngClass]="{ active: pagAtiva == 'sobre' }"
+              (click)="escolherAba('sobre')"
+              >Sobre</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              [ngClass]="{ active: pagAtiva == 'projetos' }"
+              (click)="escolherAba('projetos')"
+              >Projetos</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              [ngClass]="{ active: pagAtiva == 'produtos' }"
+              (click)="escolherAba('produtos')"
+              >Produtos</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              [ngClass]="{ active: pagAtiva == 'contato' }"
+              (click)="escolherAba('contato')"
+              >Contato</a
+            >
+          </li>
+        </ul>
+        <form class="d-flex">
+          <a class="btn btn-outline-primary" href="sys/"
+            >Login</a
+          >
+        </form>
+      </div>
+    </div>
+  </nav>
+  <div class="row" [hidden]="pagAtiva != 'inicio'" >
+    <div class="col p-0">
+      <inicio></inicio>
+    </div>
+  </div>
+  <div class="row" *ngIf="pagAtiva == 'sobre'">
+    <div class="col "><sobre></sobre></div>
+  </div>
+  <div class="row" *ngIf="pagAtiva == 'projetos'">
+    <div class="col "><projetos></projetos></div>
+  </div>
+  <div class="row" *ngIf="pagAtiva == 'produtos'">
+    <div class="col "><produtos></produtos></div>
+  </div>
+  <div class="row" *ngIf="pagAtiva == 'contato'">
+    <div class="col "><contato></contato></div>
+  </div>
+</div>
