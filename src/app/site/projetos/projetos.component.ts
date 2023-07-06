@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ProjetosService } from './projetos.service';
 
 @Component({
   selector: 'projetos',
@@ -7,4 +8,12 @@ import { Component } from '@angular/core';
 })
 export class ProjetosComponent {
 
+  projetos: any[] = [];
+  constructor(public service: ProjetosService) {}
+
+  getArtistas(){
+    this.service.buscarProjetos().subscribe((res) => {
+      this.projetos = res;
+    });
+  }
 }

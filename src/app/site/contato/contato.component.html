@@ -1,30 +1,31 @@
 <div class="row">
   <div class="col p-4">
-    <div class="jumbotron p-2">
+    <div class="jumbotron p-2" *ngIf="contato">
       <h1 class="display-4">Onde nos encontrar?</h1>
+      <p class="lead">{{contato.endereco}}</p>
       <div class="row">
-        <div class="col">
+        <div class="col" *ngIf="contato.linkYoutube">
           <img
             class="semControle"
-            (click)="ir('https://web.whatsapp.com/')"
+            (click)="ir(contato.linkYoutube)"
             src="../../../assets/you.png"
             style="width: 100%; cursor: pointer"
             alt=""
           />
         </div>
-        <div class="col">
+        <div class="col" *ngIf="contato.linkWhatsapp">
           <img
             class="semControle"
-            (click)="ir('https://web.whatsapp.com/')"
+            (click)="ir(contato.linkWhatsapp)"
             src="../../../assets/zap.png"
             style="width: 100%; cursor: pointer"
             alt=""
           />
         </div>
-        <div class="col">
+        <div class="col" *ngIf="contato.linkInstagram">
           <img
             class="semControle"
-            (click)="ir('https://web.whatsapp.com/')"
+            (click)="ir(contato.linkInstagram)"
             src="../../../assets/insta.png"
             style="width: 100%; cursor: pointer"
             alt=""
